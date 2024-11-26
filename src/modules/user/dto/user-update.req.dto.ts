@@ -5,7 +5,7 @@ import { IsEmail, IsOptional, IsString, MinLength } from 'class-validator';
 export class UserUpdateRequestDto {
   @ApiProperty({
     description: 'Enter the new name',
-    example: 'Jhon Doe'
+    example: 'Mridul158'
 })
 
 
@@ -15,7 +15,7 @@ export class UserUpdateRequestDto {
 
   @ApiProperty({
     description: 'Enter the new Email',
-    example: 'Jhon70@gmail.com'
+    example: 'mridul1234@gmail.com'
   })
   @IsOptional()
   @IsEmail()
@@ -27,6 +27,5 @@ export class UserUpdateRequestDto {
 })
   @IsOptional()
   @IsString()
-  @MinLength(6)
   password?: string;
 }
