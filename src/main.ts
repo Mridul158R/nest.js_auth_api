@@ -9,11 +9,21 @@ async function bootstrap() {
     .setTitle('API')
     .setDescription(' Nest.js-based API that allows users to interact with a PostgreSQL database')
     .setVersion('1.0')
-    .addBearerAuth()
+    .addBearerAuth(
+      {
+        description: 'Enter your Bearer Token',
+        type: 'http',
+        in: 'header',
+        scheme: 'bearer',
+        bearerFormat: 'JWT',
+      },
+      'Authorization'
+      
+    )
     .build();
 
   const documentFactory = () => SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, documentFactory);
+  SwaggerModule.setup('', app, documentFactory);
   await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();
